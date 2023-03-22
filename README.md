@@ -21,7 +21,7 @@ $https://github.com/cinthiagodoi/EasyFlight.git
 * [C#](https://learn.microsoft.com/en-us/dotnet/csharp/)
 * [WindowsForm](https://learn.microsoft.com/pt-br/dotnet/desktop/winforms/overview/?view=netdesktop-7.0)
 
-#APIs used
+## APIs used
 * [Airlabs](https://airlabs.co/docs/airports) 
 * [SendGrid](https://sendgrid.com/) 
 
