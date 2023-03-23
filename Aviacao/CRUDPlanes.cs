@@ -170,18 +170,18 @@ public partial class CRUDPlanes : Form
             {
                 if (btn!.Text == "Ativar") selectedPlane!.Status = "Ativo";
                 else if (btn!.Text == "Inativar") selectedPlane!.Status = "Inativo";
-                else if (btn!.Text == "Manutenção") selectedPlane.Status = "Manutenção";
+                else if (btn!.Text == "Manutenção") selectedPlane!.Status = "Manutenção";
           
                 InitList();
             }
             else
             {
-                List<Flight> flightsWithFutureDate = listFlights.FindAll(flight => DateTime.Parse(flight.Date).Date.CompareTo(DateTime.Now.Date) > 0);
+                List<Flight> ConfirmFlights = listFlights.FindAll(flight => flight.FlightStatus == "Confirmado");
 
-                if (flightsWithFutureDate.Count >= 0) MessageBox.Show("Não é possível mudar o status, avião possui vôos agendados", "Alert", MessageBoxButtons.OK);
+                if (ConfirmFlights.Count > 0) MessageBox.Show("Não é possível mudar o status, avião possui vôos agendados", "Alert", MessageBoxButtons.OK);
                 else
                 {
-                    selectedPlane!.Status = btn.Text;
+                    selectedPlane!.Status = btn!.Text;
                     InitList();
                 }
             }

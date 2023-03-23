@@ -29,6 +29,13 @@ public class Ticket
         return $"{Id},{Name},{Email},{Seat},{PaymentMethod},{SelectedClass},{PhoneNumber},{Nif},{TicketStatus}";
     }
 
+    /// <summary>
+    /// Set the SendGridApi request to send emails
+    /// </summary>
+    /// <param name="ticket"></param>
+    /// <param name="path"></param>
+    /// <param name="subjectText"></param>
+    /// <returns></returns>
     public static async Task Execute(Ticket ticket, string path, string subjectText)
     {
         try
