@@ -15,7 +15,6 @@ public partial class CreateFlight : Form
     MainPage _form;
     List<Ticket> Tickets;
     List<Ticket> SoldTickets;
-
     LoadFiles Load;
     public CreateFlight(Flight flight, List<Airport> airports, List<Plane> planes, List<Flight> flights, MainPage form, List<Ticket>tickets)
     {
@@ -53,7 +52,7 @@ public partial class CreateFlight : Form
         {
             AirportsList = await Api.GetJson();
 
-            if (AirportsList.response.Count > 0)
+            if (AirportsList.response!.Count > 0)
             {
                 using (TextWriter tw = new StreamWriter(file))
                 {
@@ -305,7 +304,7 @@ public partial class CreateFlight : Form
         {
             StreamReader sr = new StreamReader(@"alteracaovooemail.txt");
             string s = sr.ReadToEnd();
-            s = s.Replace("{Nome}", ticket.Name).Replace("{numero_passagem}", ticket.FlightBought.Number).Replace("{Origem}", ticket.FlightBought.Origen).Replace("{Destino}", ticket.FlightBought.Destiny
+            s = s.Replace("{Nome}", ticket.Name).Replace("{numero_passagem}", ticket.FlightBought!.Number).Replace("{Origem}", ticket.FlightBought.Origen).Replace("{Destino}", ticket.FlightBought.Destiny
                 ).Replace("{Dia}", ticket.FlightBought.Date).Replace("{Hora}", ticket.FlightBought.Time).Replace("{Acento}", ticket.Seat).Replace
                 ("{Classe}", ticket.SelectedClass).Replace("{logo}", "http://cdn.mcauto-images-production.sendgrid.net/c3759a398af145f9/80027bb1-001d-4ee1-88e9-e15ec09291ee/1006x607.png");
             sr.Close();
@@ -359,7 +358,7 @@ public partial class CreateFlight : Form
         int countFirst = 0;
         int countEconomy = 0;
 
-        List<Ticket> soldTicket = Tickets.FindAll(ticket => ticket.FlightBought.Id == selectedFlight.Id);
+        List<Ticket> soldTicket = Tickets.FindAll(ticket => ticket.FlightBought!.Id == selectedFlight.Id);
         foreach(Ticket ticket in soldTicket)
         {
             if (ticket.SelectedClass == "Primeira Classe") countFirst++;

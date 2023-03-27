@@ -55,7 +55,7 @@ public partial class CRUDFlight : Form
     {
         foreach (Flight item in Flights)
         {
-            listViewFlights.Items.Add(new ListViewItem(new string[] { item.Id.ToString(), item.Number, item.FlightStatus, item.Origen, item.Destiny, item.Date, item.Time }));
+            listViewFlights.Items.Add(new ListViewItem(new string[] { item.Id.ToString(), item.Number!, item.FlightStatus!, item.Origen!, item.Destiny!, item.Date!, item.Time! }));
         }
     }
 
@@ -220,7 +220,7 @@ public partial class CRUDFlight : Form
         {
             StreamReader sr = new StreamReader(@"emailcancelamento.txt");
             string s = sr.ReadToEnd();
-            s = s.Replace("{Nome}", ticket.Name).Replace("{numero_passagem}", ticket.FlightBought.Number).Replace("{Origem}", ticket.FlightBought.Origen).Replace("{Destino}", ticket.FlightBought.Destiny
+            s = s.Replace("{Nome}", ticket.Name).Replace("{numero_passagem}", ticket.FlightBought!.Number).Replace("{Origem}", ticket.FlightBought.Origen).Replace("{Destino}", ticket.FlightBought.Destiny
                 ).Replace("{Dia}", ticket.FlightBought.Date).Replace("{Hora}", ticket.FlightBought.Time).Replace("{Acento}", ticket.Seat).Replace
                 ("{Classe}", ticket.SelectedClass).Replace("{logo}", "http://cdn.mcauto-images-production.sendgrid.net/c3759a398af145f9/80027bb1-001d-4ee1-88e9-e15ec09291ee/1006x607.png");
             sr.Close();

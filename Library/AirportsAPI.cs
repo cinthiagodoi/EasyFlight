@@ -36,7 +36,7 @@ public class AirportsAPI
     {
         string url = ("https://airlabs.co/api/v9/airports?iata_code?_fields(is_international)&api_key=77ab9b08-f17c-4a28-8937-ac4895faab52");
 
-        using (HttpResponseMessage response = await AirportsAPI.AiportsApi.GetAsync(url))
+        using (HttpResponseMessage response = await AirportsAPI.AiportsApi!.GetAsync(url))
         {
             if (response.IsSuccessStatusCode)
             {

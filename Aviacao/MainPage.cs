@@ -1,6 +1,10 @@
 using FontAwesome.Sharp;
 using System.Runtime.InteropServices;
 using Library;
+using System.Globalization;
+using ScottPlot.Ticks.DateTimeTickUnits;
+using ScottPlot;
+using System.Windows.Forms;
 
 namespace Aviacao;
 
@@ -9,7 +13,7 @@ public partial class MainPage : Form
     List<Plane> Planes;
     List<Airport> Airports;
     List<Flight> Flights;
-    List<Ticket> Ticketes;
+    List<Ticket> Tickets;
 
     SaveFiles SaveFiles;
     LoadFiles LoadFiles;
@@ -25,11 +29,13 @@ public partial class MainPage : Form
         Planes = LoadFiles.LoadPlanesList();
         Airports = LoadFiles.LoadAiportList();
         Flights = LoadFiles.LoadFlightlList(Planes);
-        Ticketes = LoadFiles.LoadTicketList(Flights);
+        Tickets = LoadFiles.LoadTicketList(Flights);
 
 
         InitializeComponent();
         AirportsAPI.InitializeApi();
+        CustomDateTime();
+
 
         leftBorderBtn = new Panel();
         leftBorderBtn.Size = new Size(7, 60);
@@ -46,6 +52,13 @@ public partial class MainPage : Form
     /// <summary>
     /// Set colors that will be used in the form as a variable.
     /// </summary>
+    /// 
+    private void CustomDateTime()
+    {
+        dateTimePickerSelectYear.Format = DateTimePickerFormat.Custom;
+        dateTimePickerSelectYear.CustomFormat = "yyyy";
+        dateTimePickerSelectYear.ShowUpDown = true;
+    }
     private struct RGBColors
     {
         public static Color color1 = Color.FromArgb(220, 184, 46);
@@ -176,7 +189,7 @@ public partial class MainPage : Form
         SaveFiles = new SaveFiles();
         SaveFiles.SavePlanesList(Planes);
         SaveFiles.SaveFligthsList(Flights,Planes);
-        SaveFiles.SaveTicketsList(Ticketes, Flights);
+        SaveFiles.SaveTicketsList(Tickets, Flights);
     }
 
     /// <summary>
@@ -187,7 +200,7 @@ public partial class MainPage : Form
     private void btnManageFlights_Click(object sender, EventArgs e)
     {
         ActivateButton(sender, RGBColors.color1);
-        OpenChildForm(new CRUDFlight(Planes, this, Flights, Ticketes, Airports));
+        OpenChildForm(new CRUDFlight(Planes, this, Flights, Tickets, Airports));
     }
 
     /// <summary>
@@ -198,7 +211,7 @@ public partial class MainPage : Form
     private void btnTickets_Click(object sender, EventArgs e)
     {
         ActivateButton(sender, RGBColors.color1);
-        OpenChildForm(new CRUDTickets(Ticketes, Flights, this));
+        OpenChildForm(new CRUDTickets(Tickets, Flights, this));
     }
     /// <summary>
     /// Open the Planes form
@@ -211,4 +224,78 @@ public partial class MainPage : Form
         OpenChildForm(new CRUDPlanes(Planes, this, Flights));
     }
 
+    private void MainPage_Load(object sender, EventArgs e)
+    {
+        CreateFormPlot(DateTime.Now.Year);
+        DisplaySoldTickets(DateTime.Now.Year);
+    }
+
+    private void CreateFormPlot(int year)
+    {
+        formsPlot1.Plot.Clear();
+
+        double[] dataX = new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+        double[] dataY = new double[12];
+
+        int count = 0;
+        foreach (Flight flight in Flights)
+        {
+            DateTime date = DateTime.Parse(flight.Date!);
+            if(date.Year == year)
+            {
+                dataY[date.Month - 1]++;
+                if (flight.FlightStatus == "Cancelado") count++;
+            }
+        }
+
+        lblCanceledFlights.Text = count.ToString();
+
+        formsPlot1.Plot.Title("Vôos");
+        formsPlot1.Plot.XLabel("Mês");
+        formsPlot1.Plot.YLabel("Total Vôos");
+
+        formsPlot1.Plot.AddScatter(dataX, dataY);
+        formsPlot1.Refresh();
+    }
+
+    private void DisplaySoldTickets(int year)
+    {
+        int count = 0;
+        int countCanceled = 0;
+        foreach(Ticket ticket in Tickets)
+        {
+            DateTime d = DateTime.Parse(ticket.FlightBought.Date);
+            if(d.Year == year)
+            {
+                count++;
+                if (ticket.TicketStatus == "Cancelado") countCanceled++;
+            }
+
+        }
+
+        labelPassagensVendidas.Text = count.ToString();
+        lblCanceledTickets.Text = countCanceled.ToString();
+    }
+
+    private void btnShowResults_Click(object sender, EventArgs e)
+    {
+        int year = Convert.ToInt32(dateTimePickerSelectYear.Text);
+        CreateFormPlot(year);
+        DisplaySoldTickets(year);
+    }
+
+    private void tabPage1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void panelDesktop_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
+
+    private void label2_Click(object sender, EventArgs e)
+    {
+
+    }
 }

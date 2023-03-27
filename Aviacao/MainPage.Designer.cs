@@ -42,11 +42,30 @@
             this.iconCurrentChildFormIcon = new FontAwesome.Sharp.IconPictureBox();
             this.panelShadow = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.labelPassagensVendidas = new System.Windows.Forms.Label();
+            this.btnShowResults = new System.Windows.Forms.Button();
+            this.dateTimePickerSelectYear = new System.Windows.Forms.DateTimePicker();
+            this.formsPlot1 = new ScottPlot.FormsPlot();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblCanceledTickets = new System.Windows.Forms.Label();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lblCanceledFlights = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildFormIcon)).BeginInit();
+            this.panelDesktop.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -246,11 +265,133 @@
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.panelDesktop.Controls.Add(this.tabControl3);
+            this.panelDesktop.Controls.Add(this.tabControl2);
+            this.panelDesktop.Controls.Add(this.tabControl1);
+            this.panelDesktop.Controls.Add(this.btnShowResults);
+            this.panelDesktop.Controls.Add(this.dateTimePickerSelectYear);
+            this.panelDesktop.Controls.Add(this.formsPlot1);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(492, 90);
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Size = new System.Drawing.Size(1495, 898);
             this.panelDesktop.TabIndex = 4;
+            this.panelDesktop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktop_Paint);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Location = new System.Drawing.Point(915, 195);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(369, 134);
+            this.tabControl1.TabIndex = 4;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.labelPassagensVendidas);
+            this.tabPage1.Location = new System.Drawing.Point(8, 45);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(353, 81);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Passagens Vendidas";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // labelPassagensVendidas
+            // 
+            this.labelPassagensVendidas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelPassagensVendidas.Location = new System.Drawing.Point(19, 24);
+            this.labelPassagensVendidas.Name = "labelPassagensVendidas";
+            this.labelPassagensVendidas.Size = new System.Drawing.Size(447, 107);
+            this.labelPassagensVendidas.TabIndex = 0;
+            this.labelPassagensVendidas.Text = "label1";
+            // 
+            // btnShowResults
+            // 
+            this.btnShowResults.Location = new System.Drawing.Point(588, 48);
+            this.btnShowResults.Name = "btnShowResults";
+            this.btnShowResults.Size = new System.Drawing.Size(150, 46);
+            this.btnShowResults.TabIndex = 3;
+            this.btnShowResults.Text = "Ok";
+            this.btnShowResults.UseVisualStyleBackColor = true;
+            this.btnShowResults.Click += new System.EventHandler(this.btnShowResults_Click);
+            // 
+            // dateTimePickerSelectYear
+            // 
+            this.dateTimePickerSelectYear.CustomFormat = "true";
+            this.dateTimePickerSelectYear.Location = new System.Drawing.Point(137, 50);
+            this.dateTimePickerSelectYear.Name = "dateTimePickerSelectYear";
+            this.dateTimePickerSelectYear.Size = new System.Drawing.Size(400, 38);
+            this.dateTimePickerSelectYear.TabIndex = 2;
+            // 
+            // formsPlot1
+            // 
+            this.formsPlot1.Location = new System.Drawing.Point(53, 157);
+            this.formsPlot1.Margin = new System.Windows.Forms.Padding(9, 6, 9, 6);
+            this.formsPlot1.Name = "formsPlot1";
+            this.formsPlot1.Size = new System.Drawing.Size(759, 634);
+            this.formsPlot1.TabIndex = 0;
+            // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabPage2);
+            this.tabControl2.Location = new System.Drawing.Point(915, 374);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(501, 128);
+            this.tabControl2.TabIndex = 5;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.lblCanceledTickets);
+            this.tabPage2.Location = new System.Drawing.Point(8, 45);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(485, 75);
+            this.tabPage2.TabIndex = 0;
+            this.tabPage2.Text = "Passagens Canceladas";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // lblCanceledTickets
+            // 
+            this.lblCanceledTickets.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblCanceledTickets.Location = new System.Drawing.Point(19, 13);
+            this.lblCanceledTickets.Name = "lblCanceledTickets";
+            this.lblCanceledTickets.Size = new System.Drawing.Size(447, 48);
+            this.lblCanceledTickets.TabIndex = 0;
+            this.lblCanceledTickets.Text = "label1";
+            // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tabPage3);
+            this.tabControl3.Location = new System.Drawing.Point(915, 541);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(501, 128);
+            this.tabControl3.TabIndex = 6;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.lblCanceledFlights);
+            this.tabPage3.Location = new System.Drawing.Point(8, 45);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(485, 75);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "Vôos Cancelados";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // lblCanceledFlights
+            // 
+            this.lblCanceledFlights.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblCanceledFlights.Location = new System.Drawing.Point(6, 3);
+            this.lblCanceledFlights.Name = "lblCanceledFlights";
+            this.lblCanceledFlights.Size = new System.Drawing.Size(447, 48);
+            this.lblCanceledFlights.TabIndex = 0;
+            this.lblCanceledFlights.Text = "label2";
+            this.lblCanceledFlights.Click += new System.EventHandler(this.label2_Click);
             // 
             // MainPage
             // 
@@ -268,12 +409,20 @@
             this.Name = "MainPage";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.MainPage_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildFormIcon)).EndInit();
+            this.panelDesktop.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -293,5 +442,17 @@
         private Panel panelShadow;
         private Panel panelDesktop;
         private FontAwesome.Sharp.IconButton iconButtonClose;
+        private ScottPlot.FormsPlot formsPlot1;
+        private DateTimePicker dateTimePickerSelectYear;
+        private Button btnShowResults;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private Label labelPassagensVendidas;
+        private TabControl tabControl3;
+        private TabPage tabPage3;
+        private Label lblCanceledFlights;
+        private TabControl tabControl2;
+        private TabPage tabPage2;
+        private Label lblCanceledTickets;
     }
 }
