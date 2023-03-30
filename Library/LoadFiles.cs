@@ -147,9 +147,7 @@ public class LoadFiles
             if (DateTime.Parse(flightDay).Date.CompareTo(DateTime.Now.Date) > 0) return "Confirmado";
             else return "Realizado";
         }
-        else return status;
-    
-       
+        else return status; 
     }
     /// <summary>
     /// return the plane Id
@@ -184,7 +182,7 @@ public class LoadFiles
 
             while ((line = sr.ReadLine()!) != null)
             {
-                string[] items = new string[10];
+                string[] items = new string[11];
 
                 items = line.Split(",");
 
@@ -198,8 +196,9 @@ public class LoadFiles
                     SelectedClass = items[5],
                     PhoneNumber = Convert.ToInt32(items[6]),
                     Nif = Convert.ToInt32(items[7]),
-                    TicketStatus = items[8],
-                    FlightBought = ReturnFlightById(Convert.ToInt32(items[9]), Flights)
+                    TicketValue = Convert.ToDouble(items[8]),
+                    TicketStatus = ReturnTicketStatus(ReturnFlightById(Convert.ToInt32(items[10]), Flights), items[9]),
+                    FlightBought = ReturnFlightById(Convert.ToInt32(items[10]), Flights)
                 };
                 Tickets.Add(addTicket);
             }
@@ -208,6 +207,18 @@ public class LoadFiles
       
 
         return Tickets;
+    }
+
+    private string ReturnTicketStatus(Flight flight,string status)
+    {
+        if (status == "Ativo")
+        {
+            if (DateTime.Parse(flight.Date!).Date.CompareTo(DateTime.Now.Date) > 0) return "Ativo";
+            else return "Realizado";
+        }
+        else return status;
+
+
     }
 
     /// <summary>

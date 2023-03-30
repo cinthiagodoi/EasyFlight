@@ -47,11 +47,11 @@
             this.listViewPlanes.FullRowSelect = true;
             this.listViewPlanes.GridLines = true;
             this.listViewPlanes.HoverSelection = true;
-            this.listViewPlanes.Location = new System.Drawing.Point(68, 148);
+            this.listViewPlanes.Location = new System.Drawing.Point(35, 119);
             this.listViewPlanes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.listViewPlanes.MultiSelect = false;
             this.listViewPlanes.Name = "listViewPlanes";
-            this.listViewPlanes.Size = new System.Drawing.Size(946, 639);
+            this.listViewPlanes.Size = new System.Drawing.Size(946, 533);
             this.listViewPlanes.TabIndex = 0;
             this.listViewPlanes.UseCompatibleStateImageBehavior = false;
             // 
@@ -62,7 +62,7 @@
             this.btnNewPlane.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewPlane.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnNewPlane.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(51)))), ((int)(((byte)(144)))));
-            this.btnNewPlane.Location = new System.Drawing.Point(1050, 198);
+            this.btnNewPlane.Location = new System.Drawing.Point(35, 697);
             this.btnNewPlane.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnNewPlane.Name = "btnNewPlane";
             this.btnNewPlane.Size = new System.Drawing.Size(404, 63);
@@ -78,7 +78,7 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(51)))), ((int)(((byte)(144)))));
-            this.btnEdit.Location = new System.Drawing.Point(1052, 290);
+            this.btnEdit.Location = new System.Drawing.Point(577, 697);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(404, 63);
@@ -89,7 +89,7 @@
             // 
             // txtSearchPlane
             // 
-            this.txtSearchPlane.Location = new System.Drawing.Point(68, 68);
+            this.txtSearchPlane.Location = new System.Drawing.Point(355, 47);
             this.txtSearchPlane.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtSearchPlane.Name = "txtSearchPlane";
             this.txtSearchPlane.Size = new System.Drawing.Size(547, 38);
@@ -98,15 +98,15 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(51)))), ((int)(((byte)(144)))));
-            this.label1.Location = new System.Drawing.Point(631, 66);
+            this.label1.Location = new System.Drawing.Point(35, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(374, 40);
+            this.label1.Size = new System.Drawing.Size(313, 40);
             this.label1.TabIndex = 7;
             this.label1.Text = "Pesquisar por colunas";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnInativar
             // 
@@ -163,9 +163,9 @@
             this.groupBox1.Controls.Add(this.btnInativar);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(51)))), ((int)(((byte)(144)))));
-            this.groupBox1.Location = new System.Drawing.Point(1043, 426);
+            this.groupBox1.Location = new System.Drawing.Point(1030, 232);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(414, 346);
+            this.groupBox1.Size = new System.Drawing.Size(409, 298);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Alterar Status Avião";

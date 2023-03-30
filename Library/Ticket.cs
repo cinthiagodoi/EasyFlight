@@ -22,11 +22,13 @@ public class Ticket
 
     public string? TicketStatus { get; set; }
 
+    public double? TicketValue { get; set; }
+
     public Flight? FlightBought { get; set; }
 
     public override string ToString()
     {
-        return $"{Id},{Name},{Email},{Seat},{PaymentMethod},{SelectedClass},{PhoneNumber},{Nif},{TicketStatus}";
+        return $"{Id},{Name},{Email},{Seat},{PaymentMethod},{SelectedClass},{PhoneNumber},{Nif},{TicketValue},{TicketStatus}";
     }
 
     /// <summary>
@@ -40,9 +42,9 @@ public class Ticket
     {
         try
         {
-            var apiKey = "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";
+            var apiKey = "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";
             var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("ptgodoicinthia@gmail.com", "Easy Flight");
+            var from = new EmailAddress("brgodoicinthia@gmail.com", "Easy Flight");
             var subject = subjectText;
             var to = new EmailAddress(ticket.Email, ticket.Name);
             var plainTextContent = "Notificação Easy Flight";
@@ -52,7 +54,7 @@ public class Ticket
         }
         catch (Exception err)
         {
-            string messa = $"E-mail não enviado!{err}";
+            string message = $"E-mail não enviado!{err}";
         }
     }
 }

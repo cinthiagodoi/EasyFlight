@@ -21,12 +21,14 @@ public partial class CRUDTickets : Form
     private void InitList()
     {
         listViewTickets.Clear();
-        listViewTickets.Columns.Add("ID", 50);
-        listViewTickets.Columns.Add("Nome", 300);
-        listViewTickets.Columns.Add("Voo", 100);
-        listViewTickets.Columns.Add("Acento", 100);
-        listViewTickets.Columns.Add("Nif", 200);
-        listViewTickets.Columns.Add("Status", 100);
+        listViewTickets.Columns.Add("ID");
+        listViewTickets.Columns.Add("Nome");
+        listViewTickets.Columns.Add("Voo");
+        listViewTickets.Columns.Add("Acento");
+        listViewTickets.Columns.Add("Nif");
+        listViewTickets.Columns.Add("Email");
+        listViewTickets.Columns.Add("Valor");
+        listViewTickets.Columns.Add("Status");
         listViewTickets.View = View.Details;
         PopulateList();
     }
@@ -38,7 +40,12 @@ public partial class CRUDTickets : Form
     {
         foreach (Ticket item in Tickets)
         {
-            listViewTickets.Items.Add(new ListViewItem(new string[] { item.Id.ToString(), item.Name, item.FlightBought.Number, item.Seat, item.Nif.ToString(), item.TicketStatus }));
+            listViewTickets.Items.Add(new ListViewItem(new string[] { item.Id.ToString(), item.Name, item.FlightBought.Number, item.Seat, item.Nif.ToString(), item.Email, item.TicketValue.ToString(),item.TicketStatus }));
+        }
+
+        for (int i = 0; i < 8; i++)
+        {
+            listViewTickets.Columns[i].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
     }
 
@@ -67,7 +74,7 @@ public partial class CRUDTickets : Form
         if (selectedItem != null)
         {
             Ticket selectedTicket = Tickets.Find(ticket => ticket.Id == Convert.ToInt32(selectedItem))!;
-            if (selectedTicket.TicketStatus == "Cancelado")
+            if (selectedTicket.TicketStatus == "Cancelado" || selectedTicket.TicketStatus == "Realizado")
             {
                 MessageBox.Show("Bilhete não pode ser editado!", "Erro", MessageBoxButtons.OK);
             }
@@ -103,9 +110,16 @@ public partial class CRUDTickets : Form
             if (dialogResult == DialogResult.Yes)
             {
                 Ticket selectedTicket = Tickets.Find(ticket => ticket.Id == Convert.ToInt32(selectedItem))!;
-                selectedTicket.TicketStatus = "Cancelado";
-                SendCancelEmail(selectedTicket);
-                InitList();
+                if (selectedTicket.TicketStatus == "Realizado")
+                {
+                    MessageBox.Show("Passagem não pode ser cancelada");
+                }
+                else
+                {
+                    selectedTicket.TicketStatus = "Cancelado";
+                    SendCancelEmail(selectedTicket);
+                    InitList();
+                }
 
             }
 
@@ -128,7 +142,7 @@ public partial class CRUDTickets : Form
             string s = sr.ReadToEnd();
             s = s.Replace("{Nome}", ticket.Name).Replace("{numero_passagem}", ticket.FlightBought.Number).Replace("{Origem}", ticket.FlightBought.Origen).Replace("{Destino}", ticket.FlightBought.Destiny
                 ).Replace("{Dia}", ticket.FlightBought.Date).Replace("{Hora}", ticket.FlightBought.Time).Replace("{Acento}", ticket.Seat).Replace
-                ("{Classe}", ticket.SelectedClass).Replace("{logo}", "http://cdn.mcauto-images-production.sendgrid.net/c3759a398af145f9/80027bb1-001d-4ee1-88e9-e15ec09291ee/1006x607.png");
+                ("{Classe}", ticket.SelectedClass).Replace("{logo}", "http://cdn.mcauto-images-production.sendgrid.net/c03970a5f8aeba97/71583204-59e9-4af5-b7c7-514acd81c136/200x121.png");
             sr.Close();
             return s;
         }

@@ -27,10 +27,12 @@ public partial class CRUDPlanes : Form
     private void InitList()
     {
         listViewPlanes.Clear();
-        listViewPlanes.Columns.Add("ID", 50);
-        listViewPlanes.Columns.Add("Marca", 300);
-        listViewPlanes.Columns.Add("Modelo", 200);
-        listViewPlanes.Columns.Add("Status", 300);
+        listViewPlanes.Columns.Add("ID");
+        listViewPlanes.Columns.Add("Marca");
+        listViewPlanes.Columns.Add("Modelo");
+        listViewPlanes.Columns.Add("Status");
+        listViewPlanes.Columns.Add("Capacidade PC");
+        listViewPlanes.Columns.Add("Capacidade E");
         listViewPlanes.View = View.Details;
         PopulateList();
     }
@@ -42,7 +44,13 @@ public partial class CRUDPlanes : Form
     {
         foreach (Plane item in Planes)
         {
-            listViewPlanes.Items.Add(new ListViewItem(new string[] { item.Id.ToString(), item.Brand, item.Model, item.Status }));
+            int economy = item.SeatsPerRowEconomy * item.NumberRowsEconomy;
+            int firstClass = item.SeatsPerRowFirstClass * item.NumberRowsFirstClass;
+            listViewPlanes.Items.Add(new ListViewItem(new string[] { item.Id.ToString(), item.Brand, item.Model, item.Status, firstClass.ToString(), economy.ToString()  }));
+        }
+        for (int i = 0; i < 6; i++)
+        {
+            listViewPlanes.Columns[i].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
     }
 
@@ -68,14 +76,27 @@ public partial class CRUDPlanes : Form
     {
         string selectedItem = ReturnSelectedItem();
         Plane selectedPlane = new Plane();
-        
+       
         if (selectedItem != null)
         {
             foreach (Plane item in Planes)
             {
                 if (item.Id == Convert.ToInt32(selectedItem)) selectedPlane = item;
             }
-            _form.OpenChildForm(new CreatePlane(selectedPlane, Planes, _form, Flights));
+
+            List<Flight> flight = Flights.FindAll(flight => flight.UsePlane == selectedPlane && flight.FlightStatus == "Confirmado");
+            if(flight.Count > 0 )
+            {
+                MessageBox.Show("Avião possui vôo agendados, não " +
+                    "é possível editar", "Erro", MessageBoxButtons.OK);
+            }
+
+            else if(selectedPlane.Status != "Ativo")
+            {
+                MessageBox.Show("Avião não pode ser editado", "Erro", MessageBoxButtons.OK);
+            }
+            
+            else _form.OpenChildForm(new CreatePlane(selectedPlane, Planes, _form, Flights));
         }
         else MessageBox.Show("Nenhum avião selecionado", "Erro", MessageBoxButtons.OK);
     }

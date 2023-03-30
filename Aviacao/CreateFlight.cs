@@ -85,10 +85,14 @@ public partial class CreateFlight : Form
             numericUpDownEconomica.Value = (decimal)selectedFlight.EconomyClassPrice;
             numericUpDownPrimeiraClasse.Value = (decimal)selectedFlight.FirstClassPrice;
         }
-        if (SoldTickets.Count > 0)
+
+        List<Ticket> tickets = Tickets.FindAll(t => t.FlightBought!.Id == selectedFlight.Id && t.TicketStatus == "Ativo");
+        if (tickets.Count > 0)
         {
             txtDestinyCountry.Enabled = false;
             txtOrigemCountry.Enabled = false;
+            dateTimePickerSelectedFlightDate.Enabled = false;
+            dateTimePickerHour.Enabled = false;
             ChangeComboBox();
             comboBoxAvioes.Text = selectedFlight.UsePlane!.PlaneName;
 
@@ -171,6 +175,18 @@ public partial class CreateFlight : Form
             isValid = false;
             MessageBox.Show("Preencha valor da passagem", "Erro", MessageBoxButtons.OK);
         }
+        Plane usePlane = SelectedPlane();
+        List<Flight> flights = Flights.FindAll(f => f.UsePlane!.Id == usePlane.Id);
+        var flightsDate = flights.Where(f => f.Date.Contains(dateTimePickerSelectedFlightDate.Value.ToShortDateString())).FirstOrDefault();
+        
+        if(flightsDate != null && flightsDate.Id != selectedFlight.Id)
+        {
+
+            isValid = false;
+            MessageBox.Show("Avião já possui um vôo agendando para essa data");
+        }
+
+ 
             return isValid;
     }
 
@@ -192,8 +208,8 @@ public partial class CreateFlight : Form
                 Destiny = txtDestinyCountry.Text,
                 Date = dateTimePickerSelectedFlightDate.Value.ToShortDateString(),
                 Time = dateTimePickerHour.Value.ToString("HH:mm"),
-                FirstClassPrice = (double)numericUpDownEconomica.Value,
-                EconomyClassPrice = (double)numericUpDownPrimeiraClasse.Value,
+                FirstClassPrice = (double)numericUpDownPrimeiraClasse.Value,
+                EconomyClassPrice = (double)numericUpDownEconomica.Value,
                 FlightStatus = "Confirmado",
                 UsePlane = SelectedPlane(),
             };
@@ -222,6 +238,7 @@ public partial class CreateFlight : Form
         int id = Convert.ToInt32(ids[0]);
 
         Plane usePlane = Planes.Find(x => x.Id == id)!;
+       
 
         return usePlane;
     }
@@ -243,7 +260,7 @@ public partial class CreateFlight : Form
     }
  
     /// <summary>
-    /// clise form
+    /// close form
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
@@ -281,8 +298,8 @@ public partial class CreateFlight : Form
             selectedFlight.Destiny = txtDestinyCountry.Text;
             selectedFlight.Date = dateTimePickerSelectedFlightDate.Value.ToShortDateString();
             selectedFlight.Time = dateTimePickerHour.Value.ToString("HH:mm");
-            selectedFlight.FirstClassPrice = (double)numericUpDownEconomica.Value;
-            selectedFlight.EconomyClassPrice = (double)numericUpDownPrimeiraClasse.Value;
+            selectedFlight.EconomyClassPrice = (double)numericUpDownEconomica.Value;
+            selectedFlight.FirstClassPrice = (double)numericUpDownPrimeiraClasse.Value;
             selectedFlight.FlightStatus = "Confirmado";
             selectedFlight.UsePlane = SelectedPlane();
             SendChangeTicketEmail();

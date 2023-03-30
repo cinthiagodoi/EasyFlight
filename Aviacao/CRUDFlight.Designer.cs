@@ -38,10 +38,10 @@
             // 
             // txtSearchFlight
             // 
-            this.txtSearchFlight.Location = new System.Drawing.Point(25, 53);
+            this.txtSearchFlight.Location = new System.Drawing.Point(384, 59);
             this.txtSearchFlight.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.txtSearchFlight.Name = "txtSearchFlight";
-            this.txtSearchFlight.Size = new System.Drawing.Size(454, 38);
+            this.txtSearchFlight.Size = new System.Drawing.Size(598, 38);
             this.txtSearchFlight.TabIndex = 10;
             this.txtSearchFlight.TextChanged += new System.EventHandler(this.txtSearchFlight_TextChanged);
             // 
@@ -52,7 +52,7 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(51)))), ((int)(((byte)(144)))));
-            this.btnEdit.Location = new System.Drawing.Point(1023, 372);
+            this.btnEdit.Location = new System.Drawing.Point(538, 723);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(404, 63);
@@ -68,7 +68,7 @@
             this.btnNewFlight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnNewFlight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(51)))), ((int)(((byte)(144)))));
-            this.btnNewFlight.Location = new System.Drawing.Point(1023, 270);
+            this.btnNewFlight.Location = new System.Drawing.Point(38, 723);
             this.btnNewFlight.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.btnNewFlight.Name = "btnNewFlight";
             this.btnNewFlight.Size = new System.Drawing.Size(404, 63);
@@ -82,11 +82,11 @@
             this.listViewFlights.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(51)))), ((int)(((byte)(144)))));
             this.listViewFlights.FullRowSelect = true;
             this.listViewFlights.HoverSelection = true;
-            this.listViewFlights.Location = new System.Drawing.Point(25, 126);
+            this.listViewFlights.Location = new System.Drawing.Point(38, 125);
             this.listViewFlights.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.listViewFlights.MultiSelect = false;
             this.listViewFlights.Name = "listViewFlights";
-            this.listViewFlights.Size = new System.Drawing.Size(946, 639);
+            this.listViewFlights.Size = new System.Drawing.Size(1398, 555);
             this.listViewFlights.TabIndex = 7;
             this.listViewFlights.UseCompatibleStateImageBehavior = false;
             // 
@@ -97,7 +97,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(186)))), ((int)(((byte)(47)))));
-            this.btnCancelar.Location = new System.Drawing.Point(1023, 476);
+            this.btnCancelar.Location = new System.Drawing.Point(1032, 723);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(404, 63);
@@ -108,16 +108,16 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(51)))), ((int)(((byte)(144)))));
-            this.label1.Location = new System.Drawing.Point(511, 53);
+            this.label1.Location = new System.Drawing.Point(38, 58);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(460, 39);
+            this.label1.Size = new System.Drawing.Size(326, 39);
             this.label1.TabIndex = 12;
             this.label1.Text = "Pesquisar por colunas";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // CRUDFlight
             // 

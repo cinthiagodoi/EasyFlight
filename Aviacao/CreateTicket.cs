@@ -188,7 +188,7 @@ public partial class CreateTicket : Form
     /// <summary>
     /// is all inputs are valid edit the values in the ticket
     /// </summary>
-    private void EditTicket()
+    private async void EditTicket()
     {
         if (IsValid() == true)
         {
@@ -197,6 +197,8 @@ public partial class CreateTicket : Form
             BoughtTicket.PaymentMethod = comboBoxPaymenthMethod.Text;
             BoughtTicket.Nif = Convert.ToInt32(txtNif.Text);
             BoughtTicket.PhoneNumber = Convert.ToInt32(txtPhoneNumber.Text);
+            BoughtTicket.TicketValue = ReturnClassValue();
+            await Ticket.Execute(BoughtTicket, LoadHtml(BoughtTicket), "Confirmação Compra");
             CloseForm();
 
         }
@@ -236,10 +238,20 @@ public partial class CreateTicket : Form
             PhoneNumber = Convert.ToInt32(txtPhoneNumber.Text),
             Nif = Convert.ToInt32(txtNif.Text),
             TicketStatus = "Ativo",
+            TicketValue = ReturnClassValue(),
         };
         Tickets.Add(addTicket);
         await Ticket.Execute(addTicket, LoadHtml(addTicket), "Confirmação Compra");
         CloseForm();
+    }
+
+    private double ReturnClassValue()
+    {
+        if(BoughtTicket.SelectedClass == "Primeira Classe")
+        {
+            return Convert.ToDouble(BoughtTicket!.FlightBought!.FirstClassPrice);
+        }
+        else return Convert.ToDouble(BoughtTicket!.FlightBought!.EconomyClassPrice);
     }
  
     /// <summary>
@@ -258,7 +270,7 @@ public partial class CreateTicket : Form
         s = s.Replace("{Nome}", ticket.Name).Replace("{numero_passagem}", ticket.FlightBought.Number).Replace("{Preco}", preco).Replace(
             "{forma_pagamento}", ticket.PaymentMethod).Replace("{Origem}", ticket.FlightBought.Origen).Replace("{Destino}", ticket.FlightBought.Destiny
             ).Replace("{Dia}", ticket.FlightBought.Date).Replace("{Hora}", ticket.FlightBought.Time).Replace("{Acento}", ticket.Seat).Replace
-            ("{Classe}", ticket.SelectedClass).Replace("{logo}", "http://cdn.mcauto-images-production.sendgrid.net/c3759a398af145f9/80027bb1-001d-4ee1-88e9-e15ec09291ee/1006x607.png");
+            ("{Classe}", ticket.SelectedClass).Replace("{logo}", "http://cdn.mcauto-images-production.sendgrid.net/c03970a5f8aeba97/71583204-59e9-4af5-b7c7-514acd81c136/200x121.png");
         sr.Close();
         return s;
     }
@@ -270,6 +282,18 @@ public partial class CreateTicket : Form
     {
         _form.OpenChildForm(new CRUDTickets(Tickets, Flights, _form));
     }
+
+    /// <summary>
+    /// close the form
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void btnCancel_Click(object sender, EventArgs e)
+    {
+        _form.OpenChildForm(new CRUDTickets(Tickets, Flights, _form));
+    }
+
+ 
 }
 
 

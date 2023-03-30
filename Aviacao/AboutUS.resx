@@ -57,4 +57,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>
+                                                       Quem Somos?
+
+Desde 2023 estamos focados em entregar a melhor experiência ao cliente,
+visando sempre qualidade e facilidade com o serviço prestado.
+Nossa missão é conectar e aproximar pessoas.
+Com EasyFlight o seu próximo destino está apenas um clique de distância!</value>
+  </data>
 </root>

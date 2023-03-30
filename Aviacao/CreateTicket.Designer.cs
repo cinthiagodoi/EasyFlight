@@ -45,7 +45,7 @@
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(152, 261);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(146, 261);
             this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(245, 38);
@@ -89,7 +89,7 @@
             // 
             // txtNif
             // 
-            this.txtNif.Location = new System.Drawing.Point(152, 327);
+            this.txtNif.Location = new System.Drawing.Point(146, 327);
             this.txtNif.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNif.Name = "txtNif";
             this.txtNif.Size = new System.Drawing.Size(245, 38);
@@ -97,7 +97,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(152, 201);
+            this.txtEmail.Location = new System.Drawing.Point(146, 201);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(519, 38);
@@ -179,6 +179,7 @@
             this.btnCancel.TabIndex = 15;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // CreateTicket
             // 

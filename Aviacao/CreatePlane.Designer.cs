@@ -98,24 +98,24 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(578, 52);
+            this.label5.Location = new System.Drawing.Point(641, 52);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(344, 31);
+            this.label5.Size = new System.Drawing.Size(449, 31);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Colunas Primeira Classe:";
+            this.label5.Text = "Quantidade filas Primeira Classe:";
             // 
             // numericUpDownColunaClasseEconomica
             // 
-            this.numericUpDownColunaClasseEconomica.Location = new System.Drawing.Point(972, 134);
+            this.numericUpDownColunaClasseEconomica.Location = new System.Drawing.Point(1096, 124);
             this.numericUpDownColunaClasseEconomica.Name = "numericUpDownColunaClasseEconomica";
-            this.numericUpDownColunaClasseEconomica.Size = new System.Drawing.Size(155, 38);
+            this.numericUpDownColunaClasseEconomica.Size = new System.Drawing.Size(110, 38);
             this.numericUpDownColunaClasseEconomica.TabIndex = 8;
             // 
             // numericUpDownColunasPrimeiraClasse
             // 
-            this.numericUpDownColunasPrimeiraClasse.Location = new System.Drawing.Point(972, 52);
+            this.numericUpDownColunasPrimeiraClasse.Location = new System.Drawing.Point(1096, 50);
             this.numericUpDownColunasPrimeiraClasse.Name = "numericUpDownColunasPrimeiraClasse";
-            this.numericUpDownColunasPrimeiraClasse.Size = new System.Drawing.Size(155, 38);
+            this.numericUpDownColunasPrimeiraClasse.Size = new System.Drawing.Size(110, 38);
             this.numericUpDownColunasPrimeiraClasse.TabIndex = 7;
             // 
             // label4
@@ -123,22 +123,22 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(21, 131);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(368, 31);
+            this.label4.Size = new System.Drawing.Size(376, 31);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Fileiras Classe Econômica:";
+            this.label4.Text = "Lugares por fila Econômica:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(21, 52);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(333, 31);
+            this.label3.Size = new System.Drawing.Size(439, 31);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Fileiras Primeira Classe:";
+            this.label3.Text = "Lugares por fila Primeira Classe:";
             // 
             // numericUpDownClasseEconomica
             // 
-            this.numericUpDownClasseEconomica.Location = new System.Drawing.Point(398, 129);
+            this.numericUpDownClasseEconomica.Location = new System.Drawing.Point(459, 124);
             this.numericUpDownClasseEconomica.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
             this.numericUpDownClasseEconomica.Maximum = new decimal(new int[] {
             1000,
@@ -146,12 +146,12 @@
             0,
             0});
             this.numericUpDownClasseEconomica.Name = "numericUpDownClasseEconomica";
-            this.numericUpDownClasseEconomica.Size = new System.Drawing.Size(159, 38);
+            this.numericUpDownClasseEconomica.Size = new System.Drawing.Size(110, 38);
             this.numericUpDownClasseEconomica.TabIndex = 2;
             // 
             // numericUpDownPrimeiraClasse
             // 
-            this.numericUpDownPrimeiraClasse.Location = new System.Drawing.Point(395, 52);
+            this.numericUpDownPrimeiraClasse.Location = new System.Drawing.Point(459, 50);
             this.numericUpDownPrimeiraClasse.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.numericUpDownPrimeiraClasse.Maximum = new decimal(new int[] {
             1000,
@@ -159,7 +159,7 @@
             0,
             0});
             this.numericUpDownPrimeiraClasse.Name = "numericUpDownPrimeiraClasse";
-            this.numericUpDownPrimeiraClasse.Size = new System.Drawing.Size(159, 38);
+            this.numericUpDownPrimeiraClasse.Size = new System.Drawing.Size(110, 38);
             this.numericUpDownPrimeiraClasse.TabIndex = 1;
             // 
             // btnSalvar
@@ -191,11 +191,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(578, 136);
+            this.label6.Location = new System.Drawing.Point(641, 124);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(379, 31);
+            this.label6.Size = new System.Drawing.Size(386, 31);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Colunas Classe Econômica:";
+            this.label6.Text = "Quantidade filas Econômica:";
             // 
             // groupBox1
             // 

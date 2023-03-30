@@ -138,10 +138,18 @@ public partial class MainPage : Form
     /// <param name="e"></param>
     private void btnHome_Click(object sender, EventArgs e)
     {
-        currentChildForm.Close();
-        Reset();
+        
+        if(currentChildForm != null)
+        {
+            currentChildForm.Close();
+            CreateFormPlot(DateTime.Now.Year);
+            DisplaySoldTickets(DateTime.Now.Year);
+            dateTimePickerSelectYear.Value = new DateTime(DateTime.Now.Year,1,1);
+            Reset();
+        }
+       
     }
-
+    
     /// <summary>
     /// Reset the title bar label to Home Page
     /// </summary>
@@ -254,7 +262,12 @@ public partial class MainPage : Form
         formsPlot1.Plot.XLabel("Mês");
         formsPlot1.Plot.YLabel("Total Vôos");
 
-        formsPlot1.Plot.AddScatter(dataX, dataY);
+        formsPlot1.Plot.AddScatter(dataX, dataY, color: Color.Yellow, lineWidth: 7, markerSize: 0);
+        //formsPlot1.Plot.AddScatter(dataX, dataY);
+        formsPlot1.Plot.Style(Style.Blue2);
+
+    
+
         formsPlot1.Refresh();
     }
 
@@ -284,18 +297,9 @@ public partial class MainPage : Form
         DisplaySoldTickets(year);
     }
 
-    private void tabPage1_Click(object sender, EventArgs e)
+    private void iconButton4_Click(object sender, EventArgs e)
     {
-
-    }
-
-    private void panelDesktop_Paint(object sender, PaintEventArgs e)
-    {
-
-    }
-
-    private void label2_Click(object sender, EventArgs e)
-    {
-
+        ActivateButton(sender, RGBColors.color1);
+        OpenChildForm(new AboutUS());
     }
 }

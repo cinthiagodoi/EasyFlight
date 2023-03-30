@@ -64,8 +64,8 @@ namespace Aviacao
                     Id = contId,
                     Brand = txtMarca.Text,
                     Model = txtModelo.Text,
-                    SeatsPerRowEconomy = (int)numericUpDownPrimeiraClasse.Value,
-                    SeatsPerRowFirstClass = (int)numericUpDownClasseEconomica.Value,
+                    SeatsPerRowFirstClass = (int)numericUpDownPrimeiraClasse.Value,
+                    SeatsPerRowEconomy = (int)numericUpDownClasseEconomica.Value,
                     NumberRowsFirstClass = (int)numericUpDownColunasPrimeiraClasse.Value,
                     NumberRowsEconomy = (int)numericUpDownColunaClasseEconomica.Value,
                     Status = "Ativo",
@@ -112,6 +112,11 @@ namespace Aviacao
                 isValid = false;
             }
 
+            if(numericUpDownClasseEconomica.Value <= 0  || numericUpDownColunaClasseEconomica.Value <= 0)
+            {
+                MessageBox.Show("Insira a quantidade de lugares na classe econômica", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                isValid = false;
+            }
             return isValid;
 
         }

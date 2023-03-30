@@ -37,13 +37,13 @@ public partial class CRUDFlight : Form
     private void InitList()
     {
         listViewFlights.Clear();
-        listViewFlights.Columns.Add("ID", 50);
-        listViewFlights.Columns.Add("Número", 100);
-        listViewFlights.Columns.Add("Status", 300);
-        listViewFlights.Columns.Add("Origem", 300);
-        listViewFlights.Columns.Add("Destino", 300);
-        listViewFlights.Columns.Add("Data", 200);
-        listViewFlights.Columns.Add("Hora", 100);
+        listViewFlights.Columns.Add("ID");
+        listViewFlights.Columns.Add("Número");
+        listViewFlights.Columns.Add("Status");
+        listViewFlights.Columns.Add("Origem");
+        listViewFlights.Columns.Add("Destino");
+        listViewFlights.Columns.Add("Data");
+        listViewFlights.Columns.Add("Hora");
         listViewFlights.View = View.Details;
         PopulateList();
     }
@@ -56,6 +56,10 @@ public partial class CRUDFlight : Form
         foreach (Flight item in Flights)
         {
             listViewFlights.Items.Add(new ListViewItem(new string[] { item.Id.ToString(), item.Number!, item.FlightStatus!, item.Origen!, item.Destiny!, item.Date!, item.Time! }));
+        }
+        for (int i = 0; i < 7; i++)
+        {
+            listViewFlights.Columns[i].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
     }
 
@@ -222,7 +226,7 @@ public partial class CRUDFlight : Form
             string s = sr.ReadToEnd();
             s = s.Replace("{Nome}", ticket.Name).Replace("{numero_passagem}", ticket.FlightBought!.Number).Replace("{Origem}", ticket.FlightBought.Origen).Replace("{Destino}", ticket.FlightBought.Destiny
                 ).Replace("{Dia}", ticket.FlightBought.Date).Replace("{Hora}", ticket.FlightBought.Time).Replace("{Acento}", ticket.Seat).Replace
-                ("{Classe}", ticket.SelectedClass).Replace("{logo}", "http://cdn.mcauto-images-production.sendgrid.net/c3759a398af145f9/80027bb1-001d-4ee1-88e9-e15ec09291ee/1006x607.png");
+                ("{Classe}", ticket.SelectedClass).Replace("{logo}", "http://cdn.mcauto-images-production.sendgrid.net/c03970a5f8aeba97/71583204-59e9-4af5-b7c7-514acd81c136/200x121.png");
             sr.Close();
             return s;
         }
