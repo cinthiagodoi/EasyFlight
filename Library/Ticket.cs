@@ -42,9 +42,9 @@ public class Ticket
     {
         try
         {
-            var apiKey = "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";
+            var apiKey = "";
             var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("brgodoicinthia@gmail.com", "Easy Flight");
+            var from = new EmailAddress("");
             var subject = subjectText;
             var to = new EmailAddress(ticket.Email, ticket.Name);
             var plainTextContent = "Notificação Easy Flight";
